@@ -15,6 +15,6 @@ def start_bot(message):
 def Search_video(message):
     yt = pytube.Search(message)
     for video in yt.results:
-        bot.send_message(message.chat.id, text=f"Title: {video.file_name}, url: {video.file_id}")
+        bot.send_message(message.chat.id, text=f"Title: {video.title}, url: {video.url}")
 
 bot.infinity_polling()
