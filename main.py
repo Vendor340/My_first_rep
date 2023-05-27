@@ -1,6 +1,6 @@
 import pytube
 
-from pyTelegramBotAPI import telebot
+import telebot
 
 bot = telebot.TeleBot(token="6236996276:AAGtndPgpHa6c9wXy8hzXSqVoPBr0Wkjtbw")
 
@@ -15,7 +15,7 @@ def download_video(message):
     yt = pytube.YouTube(message.text)
     stream = yt.streams.first()
     stream.download(filename="video.mp4")
-    video = open("video.mp4" "rb")
+    video = open("video.mp4", "rb")
     bot.send_document(message.chat.id, video.read())
 
 
