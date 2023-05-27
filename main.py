@@ -12,7 +12,7 @@ def start_bot(message):
 
 @bot.message_handler(func=lambda message: message)
 def download_video(message):
-    yt = pytube.YouTube(message)
+    yt = pytube.YouTube(message.text)
     stream = yt.streams.first()
     stream.download(filename="video.mp4")
 
