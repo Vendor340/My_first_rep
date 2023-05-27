@@ -16,9 +16,9 @@ def download_video(message):
     yt = pytube.YouTube(message)
     stream = yt.streams.first()
     stream.download(filename=f"{yt.title}.mp4")
-    with open(f"{yt.title}.mp4", "rb") as video:
-        bot.send_document(message.chat.id, video)
-        video.close()
+    video = open(f"{yt.title}.mp4", "rb")
+    bot.send_document(message.chat.id, video)
+
 
 
 bot.infinity_polling()
