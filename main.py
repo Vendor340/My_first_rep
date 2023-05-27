@@ -17,8 +17,8 @@ def download_video(message):
     stream = yt.streams.first()
     stream.download(filename=f"{yt.title}.mp4")
     with open(f"{yt.title}.mp4", "rb") as video:
-        print(video)
         bot.send_document(message.chat.id, video)
+        video.close()
 
 
 bot.infinity_polling()
