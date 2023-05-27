@@ -11,13 +11,14 @@ def start_bot(message):
     bot.send_message(message.chat.id, text="Enter url of your video")
 
 
-@bot.message_handler(func=lambda message: "https:" in message.text)
+@bot.message_handler(func=lambda message: "https:" in str(message.text))
 def download_video(message):
     yt = pytube.YouTube(message)
     stream = yt.streams.first()
     stream.download(filename=f"{yt.title}.mp4")
     with open(f"{yt.title}.mp4", "rb") as video:
-        bot.send_document(message.chat.id, video.read())
+        print(video)
+        bot.send_document(message.chat.id, video)
 
 
 bot.infinity_polling()
