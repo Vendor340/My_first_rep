@@ -11,7 +11,7 @@ def start_bot(message):
     bot.send_message(message.chat.id, text="Enter url of your video")
 
 
-@bot.message_handler(func=lambda message: "https:" in message)
+@bot.message_handler(func=lambda message: "https:" in message.text)
 def download_video(message):
     yt = pytube.YouTube(message)
     stream = yt.streams.first()
