@@ -14,7 +14,7 @@ def start_bot(message):
 def download_video(message):
     yt = pytube.YouTube(message)
     stream = yt.streams.first()
-    stream.download(filename=f"{yt.title}.mp4")
+    stream.download(filename="video.mp4")
 
 
 
