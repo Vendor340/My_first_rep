@@ -1,3 +1,2 @@
-application/cache
-.env
 __pycache__
+.env

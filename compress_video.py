@@ -24,9 +24,10 @@ def extract_text(video, language_code):
                     with speech_recognition.AudioFile(file) as source:
                         audio = recognizer.record(source)
                         print(duration)
-                        text += f"from {duration} to {duration+round(source.DURATION/60, 2)}: "+str(recognizer.recognize_google(
-                            audio, language=language_code))+"\n"
-                        duration += round(source.DURATION/60, 2)
+                        text += f"from {duration} to {duration + round(source.DURATION / 60, 2)}: " + str(
+                            recognizer.recognize_google(
+                                audio, language=language_code)) + "\n"
+                        duration += round(source.DURATION / 60, 2)
                     remove(file)
         except Exception as exce:
             print("Extracting failed!!!")
